@@ -4,42 +4,62 @@
 %
 %% Description
 %
-% This is the main script for the paper. It constructs the figures included in the paper.
+% This is the main script for the paper. It loads the data and performs the computations described in the paper. It then constructs the 8 figures and 2 tables included in the paper.
 %
 %% Output
 %
 % * The figures are saved as PDF files.
 % * The figure data are saved as CSV files.
+% * The tables are saved as CSV files.
+% * The numerical results accompanying the tables are saved as Markdown files.
 %
 
-%% Set up computations
+%% Clear MATLAB
 
-setup
+% Close figure windows
+close all
 
-%% Format default figure
+% Clear workspace
+clear
 
-formatFigure
+% Clear command window
+clc
 
-%% Set parameters
+%% Specify input and output folders
 
-% Set window for trailing average (in months)
-meanWindow = 3;
+% Specify folder with raw data
+inputFolder = fullfile('..', 'raw');
 
-% Set window for minimum (in months)
-minWindow = 12;
+% Specify folder with figures and tables
+outputFolder = fullfile('..', 'results');
 
-%% Set thresholds
+%% Perform computations
 
-lowThreshold = 0.003;
-highThreshold = 0.008;
-sahmThreshold = 0.005;
+% Load data on US unemployment, job vacancies, and recessions
+getData
+
+% Compute minimum indicator
+computeIndicator
+
+% Detect recessions with Michez rule
+detectRecessions
 
 %% Produce figures
 
+% Format default figure and predefine figure properties
+formatFigure
+
+% Produce figures
 figure1
-figure2A
-figure2B
-figure34
+figure2
+figure3
+figure4
 figure5
 figure6
 figure7
+figure8
+
+%% Produce tables
+
+table1
+table2

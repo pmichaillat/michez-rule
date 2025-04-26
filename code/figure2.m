@@ -1,10 +1,10 @@
-%% figure5.m
+%% figure2.m
 % 
-% Produce figure 5
+% Produce figure 2
 %
 %% Description
 %
-% This script produces figure 5. The figure displays the unemployment and vacancy indicators, April 1929–December 1959. The figure illustrates the construction of the Michez rule in the historical period.
+% This script produces figure 2. The figure displays the unemployment and vacancy indicators, 1960–2024. The figure illustrates the construction of the Michez rule in the modern period.
 %
 %% Requirements
 %
@@ -15,13 +15,13 @@
 %
 %% Output
 %
-% * figure5.pdf - PDF file with figure 5
-% * figure5.csv - CSV file with data underlying figure 5
+% * figure2.pdf - PDF file with figure 2
+% * figure2.csv - CSV file with data underlying figure 2
 %
 
 %% Specify figure number
 
-n = '5';
+n = '2';
 
 %% Produce figure
 
@@ -31,11 +31,11 @@ hold on
 
 % Format x-axis
 ax = gca;
-set(ax, historicalAxis{:})
+set(ax, modernAxis{:})
 
 % Format y-axis
-ax.YLim = [0, 5];
-ax.YTick = [0, 0.5, 1 : 1 : 5];
+ax.YLim = [0, 4];
+ax.YTick = [0, 0.5, 1 : 1 : 4];
 ax.YLabel.String = 'Recession indicators (pp)';
 
 % Shade NBER recessions
@@ -56,5 +56,5 @@ print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
 %% Save figure data
 
 header = {'Year', 'Unemployment indicator (pp)', 'Vacancy indicator (pp)'};
-data = [timeline(historicalPeriod), uHat(historicalPeriod), vHat(historicalPeriod)];
+data = [timeline(modernPeriod), uHat(modernPeriod), vHat(modernPeriod)];
 writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))

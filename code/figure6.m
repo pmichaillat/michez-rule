@@ -1,65 +1,60 @@
-%% Specify output files
+%% figure6.m
+% 
+% Produce figure 6
+%
+%% Description
+%
+% This script produces figure 6. The figure displays the minimum indicator and threshold of 0.29pp, April 1929–December 1959. The figure illustrates how the Michez rule operates during the historical period.
+%
+%% Requirements
+%
+% * outputFolder - Path to output folder (default: defined in main.m)
+% * formatFigure.m - Predefine figure properties (default: run in main.m)
+% * getData.m - Load NBER recession dates and timeline (default: run in main.m)
+% * computeIndicator.m - Compute minimum indicator (default: run in main.m)
+%
+%% Output
+%
+% * figure6.pdf - PDF file with figure 6
+% * figure6.csv - CSV file with data underlying figure 6
+%
 
-figureFile1 = [outputFolder, 'figure6A.pdf'];
-figureFile2 = [outputFolder, 'figure6B.pdf'];
-dataFile = [outputFolder, 'figure6.csv'];
+%% Specify figure number
 
-%% Get data
-
-% Get recessions dates
-[startRecession, endRecession] = getRecession();
-
-% Get unemployment rate
-u = getUnemployment();
-
-% Get vacancy rate
-v = getVacancy();
-
-%% Compute unemployment, vacancy, and minimum indicators
-
-uIndicator  = createIndicatorCountercyclical(u,meanWindow,minWindow);
-vIndicator  = createIndicatorProcyclical(v,meanWindow,minWindow);
-minIndicator  = min(uIndicator,vIndicator);
+n = '6';
 
 %% Produce figure
 
-iFigure = iFigure + 1;
-figure(iFigure)
+% Set up figure window
+figure('NumberTitle', 'off', 'Name', ['Figure ', n])
 hold on
 
 % Format x-axis
 ax = gca;
-set(ax, xaxis{:});
+set(ax, historicalAxis{:})
 
 % Format y-axis
-ax.YLim = [0, 0.02];
-ax.YTick =  [0:0.005:0.02];
-ax.YTickLabel = ['  0pp';'0.5pp'; '  1pp';'1.5pp'; '  2pp'];
-ax.YLabel.String =  'Minimum indicator';
+ax.YLim = [0, 2.5];
+ax.YTick = [0, 0.29, 0.5 : 0.5 : 2.5];
+ax.YLabel.String = 'Minimum indicator (pp)';
 
-% Paint recession areas
-xregion(startRecession, endRecession, areaRecession{:});
+% Shade NBER recessions
+xregion(dateNber, endNber, grayArea{:})
 
-% Plot unemployment and vacancy rates
-plot(timeline, minIndicator, linePurple{:})
+% Plot Michez rule threshold
+yline(0.29, pinkLine{:})
 
-% Plot recession threshold from Sahm rule
-plot(timeline, lowThreshold.*ones(size(timeline)), linePinkThin{:})
+% Shade no-recession area
+yregion(0, 0.29, pinkOpaqueArea{:})
 
-% Save first figure
-print('-dpdf', figureFile1)
+% Plot minimum indicator
+plot(timeline, m, purpleLine{:})
 
-plot(timeline, 0.006.*ones(size(timeline)), linePinkThin{:})
+% Save figure
+print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
 
-% Save second figure
-print('-dpdf', figureFile2)
+%% Save figure data
 
-%% Save data
-
-% Write header
-header = {'Year', 'Minimum indicator'};
-writecell(header, dataFile, 'WriteMode', 'overwrite')
-
-% Write data
-data = [timeline, minIndicator];
-writematrix(round(data,4), dataFile, 'WriteMode', 'append')
+header = {'Year', 'Minimum indicator (pp)'};
+data = [timeline(historicalPeriod), m(historicalPeriod)];
+writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))

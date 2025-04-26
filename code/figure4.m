@@ -1,10 +1,10 @@
-%% figure1.m
+%% figure4.m
 % 
-% Produce figure 1
+% Produce figure 4
 %
 %% Description
 %
-% This script produces figure 1. The figure displays the US unemployment and vacancy rates, 1960–2024. Both rates are 3-month trailing averages of monthly series.
+% This script produces figure 4. The figure displays the US unemployment and vacancy rates, April 1929–December 1959. Both rates are 3-month trailing averages of monthly series.
 %
 %% Requirements
 %
@@ -15,13 +15,13 @@
 %
 %% Output
 %
-% * figure1.pdf - PDF file with figure 1
-% * figure1.csv - CSV file with data underlying figure 1
+% * figure4.pdf - PDF file with figure 4
+% * figure4.csv - CSV file with data underlying figure 4
 %
 
 %% Specify figure number
 
-n = '1';
+n = '4';
 
 %% Produce figure
 
@@ -31,11 +31,11 @@ hold on
 
 % Format x-axis
 ax = gca;
-set(ax, modernAxis{:})
+set(ax, historicalAxis{:})
 
 % Format y-axis
-ax.YLim = [0, 14];
-ax.YTick = [0 : 2 : 14];
+ax.YLim = [0, 26];
+ax.YTick = [0 : 5 : 25];
 ax.YLabel.String = 'Share of labor force (%)';
 
 % Shade NBER recessions
@@ -53,5 +53,5 @@ print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
 %% Save figure data
 
 header = {'Year', 'Smooth unemployment rate (%)', 'Smooth vacancy rate (%)'};
-data = [timeline(modernPeriod), uBar(modernPeriod), vBar(modernPeriod)];
+data = [timeline(historicalPeriod), uBar(historicalPeriod), vBar(historicalPeriod)];
 writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))

@@ -1,10 +1,10 @@
-%% figure7.m
+%% figure3.m
 % 
-% Produce figure 7
+% Produce figure 3
 %
 %% Description
 %
-% This script produces figure 7. The figure displays the minimum indicator and thresholds of 0.29pp and 0.81pp, 1960–2024. The figure illustrates how the dual-threshold Michez rule operates.
+% This script produces figure 3. The figure displays the minimum indicator and threshold of 0.29pp, 1960–2024. The figure illustrates how the Michez rule operates during the modern period.
 %
 %% Requirements
 %
@@ -15,13 +15,13 @@
 %
 %% Output
 %
-% * figure7.pdf - PDF file with figure 7
-% * figure7.csv - CSV file with data underlying figure 7
+% * figure3.pdf - PDF file with figure 3
+% * figure3.csv - CSV file with data underlying figure 3
 %
 
 %% Specify figure number
 
-n = '7';
+n = '3';
 
 %% Produce figure
 
@@ -35,21 +35,17 @@ set(ax, modernAxis{:})
 
 % Format y-axis
 ax.YLim = [0, 2];
-ax.YTick = [0, 0.29, 0.5, 0.81, 1, 1.5, 2];
+ax.YTick = [0, 0.29, 0.5 : 0.5 : 2];
 ax.YLabel.String = 'Minimum indicator (pp)';
 
 % Shade NBER recessions
 xregion(dateNber, endNber, grayArea{:})
 
-% Plot Michez rule thresholds
+% Plot Michez rule threshold
 yline(0.29, pinkLine{:})
-yline(0.81, pinkLine{:})
 
 % Shade no-recession area
 yregion(0, 0.29, pinkOpaqueArea{:})
-
-% Shade probable-recession area
-yregion(0.29, 0.81, pinkTransparentArea{:})
 
 % Plot minimum indicator
 plot(timeline, m, purpleLine{:})
