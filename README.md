@@ -1,6 +1,6 @@
 # Has the Recession Started? - Code and Data
 
-This repository contains the code and data accompanying the paper "Has the Recession Started?", written by [Pascal Michaillat](https://pascalmichaillat.org) and [Emmanuel Saez](https://eml.berkeley.edu/~saez/), and published in the [Oxford Bulletin of Economics and Statistics](https://doi.org/10.1111/obes.12685) in April 2025.
+This repository contains the code and data accompanying the paper "Has the Recession Started?", written by [Pascal Michaillat](https://pascalmichaillat.org) and [Emmanuel Saez](https://eml.berkeley.edu/~saez/), and forthcoming in the Oxford Bulletin of Economics and Statistics.
 
 ## Paper webpage
 
@@ -25,7 +25,7 @@ The raw data used by the code to produce the results in the paper are stored as 
 	
 ## Code
 
-The results in the paper are produced with MATLAB code. The code is placed in the `code` folder.
+The results in the paper are obtained using MATLAB. The MATLAB code is placed in the `code` folder.
 
 ### Main script
 
@@ -39,11 +39,11 @@ The main script performs the computations in three steps, using the following sc
 + `computeIndicator.m` - Compute minimum indicator
 + `detectRecessions.m` -  Detect recessions with Michez rule
 
-The computation output is stored in variables in the MATLAB workspace. These variables are then used to produce tables and figures.
+The output from the computations is stored in variables in the MATLAB workspace. These variables are then used to produce tables and figures.
 
 ### Figure production
 
-Before producing the figures, the main script calls the `formatFigure.m` script to preformat figures and predefine plot properties. The plot properties are stored in variables in the MATLAB workspace.
+Before producing the figures, the main script calls the `formatFigure.m` script to preformat figures and predefine figure properties. The figure properties are stored in variables in the MATLAB workspace.
 
 The main script then produces the figures using a collection of scripts:
 
