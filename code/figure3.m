@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 3. The figure displays the minimum indicator and threshold of 0.29pp, 1960–2024. The figure illustrates how the Michez rule operates during the modern period.
+% This script produces figure 3. The figure displays the minimum indicator and threshold of 0.29pp, January 1960–December 2024. The figure illustrates how the Michez rule operates during the modern period.
 %
 %% Requirements
 %

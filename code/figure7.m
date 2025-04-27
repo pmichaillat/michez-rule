@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 7. The figure displays the minimum indicator and thresholds of 0.29pp and 0.81pp, 1960–2024. The figure illustrates how the dual-threshold Michez rule operates.
+% This script produces figure 7. The figure displays the minimum indicator and thresholds of 0.29pp and 0.81pp, January 1960–December 2024. The figure illustrates how the dual-threshold Michez rule operates.
 %
 %% Requirements
 %

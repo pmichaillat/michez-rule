@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 8. The figure displays the probability of US recession obtained from the dual-threshold Michez rule, 1960–2024.
+% This script produces figure 8. The figure displays the probability of US recession obtained from the dual-threshold Michez rule, January 1960–December 2024.
 %
 %% Requirements
 %

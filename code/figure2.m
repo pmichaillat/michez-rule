@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 2. The figure displays the unemployment and vacancy indicators, 1960–2024. The figure illustrates the construction of the Michez rule in the modern period.
+% This script produces figure 2. The figure displays the unemployment and vacancy indicators, January 1960–December 2024. The figure illustrates the construction of the Michez rule in the modern period.
 %
 %% Requirements
 %

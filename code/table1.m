@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces table 1. The table displays the US recessions detected by the Michez rule, 1960–2024. The table compares the Michez rule detection dates to the recession start dates and to the Sahm rule detection dates.
+% This script produces table 1. The table displays the US recessions detected by the Michez rule, January 1960–December 2024. The table compares the Michez rule detection dates to the recession start dates and to the Sahm rule detection dates.
 %
 %% Requirements
 %

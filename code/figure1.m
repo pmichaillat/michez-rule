@@ -4,7 +4,7 @@
 %
 %% Description
 %
-% This script produces figure 1. The figure displays the US unemployment and vacancy rates, 1960–2024. Both rates are 3-month trailing averages of monthly series.
+% This script produces figure 1. The figure displays the US unemployment and vacancy rates, January 1960–December 2024. Both rates are 3-month trailing averages of monthly series.
 %
 %% Requirements
 %
