@@ -32,7 +32,7 @@ data = [yearNberHistorical, monthNberHistorical, yearMichezHistorical, monthMich
 tbl = array2table(data, 'VariableNames', header);
 
 % Display table
-fprintf('\nTable 2\n-------\n\n')
+fprintf('\nTable %d\n-------\n\n', n)
 disp(tbl)
 
 % Save table
