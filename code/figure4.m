@@ -19,14 +19,14 @@
 % * figure4.csv - CSV file with data underlying figure 4
 %
 
-%% Specify figure number
+%% Specify figure ID
 
-n = '4';
+figureId = '4';
 
 %% Produce figure
 
 % Set up figure window
-figure('NumberTitle', 'off', 'Name', ['Figure ', n])
+figure('NumberTitle', 'off', 'Name', ['Figure ', figureId])
 hold on
 
 % Format x-axis
@@ -48,10 +48,10 @@ plot(timeline, uBar, blackLine{:})
 plot(timeline, vBar, orangeLine{:})
 
 % Save figure
-print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
+print('-dpdf', fullfile(outputFolder, ['figure', figureId, '.pdf']))
 
 %% Save figure data
 
 header = {'Year', 'Smooth unemployment rate (%)', 'Smooth vacancy rate (%)'};
 data = [timeline(historicalPeriod), uBar(historicalPeriod), vBar(historicalPeriod)];
-writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))
+writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', figureId, '.csv']))

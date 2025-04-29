@@ -19,14 +19,14 @@
 % * figure8.csv - CSV file with data underlying figure 8
 %
 
-%% Specify figure number
+%% Specify figure ID
 
-n = '8';
+figureId = '8';
 
 %% Produce figure
 
 % Set up figure window
-figure('NumberTitle', 'off', 'Name', ['Figure ', n])
+figure('NumberTitle', 'off', 'Name', ['Figure ', figureId])
 hold on
 
 % Format x-axis
@@ -45,10 +45,10 @@ xregion(dateNber, endNber, grayArea{:})
 area(timeline, p, purpleArea{:})
 
 % Save figure
-print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
+print('-dpdf', fullfile(outputFolder, ['figure', figureId, '.pdf']))
 
 %% Save figure data
 
 header = {'Year', 'Recession probability'};
 data = [timeline(modernPeriod), p(modernPeriod)];
-writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))
+writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', figureId, '.csv']))

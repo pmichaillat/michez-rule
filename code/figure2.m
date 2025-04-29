@@ -19,14 +19,14 @@
 % * figure2.csv - CSV file with data underlying figure 2
 %
 
-%% Specify figure number
+%% Specify figure ID
 
-n = '2';
+figureId = '2';
 
 %% Produce figure
 
 % Set up figure window
-figure('NumberTitle', 'off', 'Name', ['Figure ', n])
+figure('NumberTitle', 'off', 'Name', ['Figure ', figureId])
 hold on
 
 % Format x-axis
@@ -51,10 +51,10 @@ plot(timeline, uHat, blackLine{:})
 plot(timeline, vHat, orangeLine{:})
 
 % Save figure
-print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
+print('-dpdf', fullfile(outputFolder, ['figure', figureId, '.pdf']))
 
 %% Save figure data
 
 header = {'Year', 'Unemployment indicator (pp)', 'Vacancy indicator (pp)'};
 data = [timeline(modernPeriod), uHat(modernPeriod), vHat(modernPeriod)];
-writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))
+writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', figureId, '.csv']))

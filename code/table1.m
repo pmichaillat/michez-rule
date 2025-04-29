@@ -18,9 +18,9 @@
 % * table1.md - Markdown file with numerical results associated with table 1
 %
 
-%% Specify table number
+%% Specify table ID
 
-n = '1';
+tableId = '1';
 
 %% Produce table
 
@@ -32,16 +32,16 @@ data = [yearNberModern, monthNberModern, yearMichezModern, monthMichezModern, ye
 tbl = array2table(data, 'VariableNames', header);
 
 % Display table
-fprintf('\nTable %s\n-------\n\n', n)
+fprintf('\nTable %s\n-------\n\n', tableId)
 disp(tbl)
 
 % Save table
-writetable(tbl, fullfile(outputFolder, ['table', n, '.csv']), 'WriteMode', 'overwrite')
+writetable(tbl, fullfile(outputFolder, ['table', tableId, '.csv']), 'WriteMode', 'overwrite')
 
 %% Display numerical results
 
 % Clear result file
-resultFile = fullfile(outputFolder, ['table', n, '.md']);
+resultFile = fullfile(outputFolder, ['table', tableId, '.md']);
 if exist(resultFile,'file'), delete(resultFile), end
 
 % Display and save results

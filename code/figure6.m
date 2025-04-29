@@ -19,14 +19,14 @@
 % * figure6.csv - CSV file with data underlying figure 6
 %
 
-%% Specify figure number
+%% Specify figure ID
 
-n = '6';
+figureId = '6';
 
 %% Produce figure
 
 % Set up figure window
-figure('NumberTitle', 'off', 'Name', ['Figure ', n])
+figure('NumberTitle', 'off', 'Name', ['Figure ', figureId])
 hold on
 
 % Format x-axis
@@ -51,10 +51,10 @@ yregion(0, 0.29, pinkOpaqueArea{:})
 plot(timeline, m, purpleLine{:})
 
 % Save figure
-print('-dpdf', fullfile(outputFolder, ['figure', n, '.pdf']))
+print('-dpdf', fullfile(outputFolder, ['figure', figureId, '.pdf']))
 
 %% Save figure data
 
 header = {'Year', 'Minimum indicator (pp)'};
 data = [timeline(historicalPeriod), m(historicalPeriod)];
-writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', n, '.csv']))
+writetable(array2table(data, 'VariableNames', header), fullfile(outputFolder, ['figure', figureId, '.csv']))
