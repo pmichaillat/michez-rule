@@ -1,6 +1,6 @@
 # Has the Recession Started? - Code and Data
 
-This repository contains the code and data accompanying the paper "Has the Recession Started?", written by [Pascal Michaillat](https://pascalmichaillat.org) and [Emmanuel Saez](https://eml.berkeley.edu/~saez/), and forthcoming in the Oxford Bulletin of Economics and Statistics.
+This repository contains the code and data accompanying the paper "Has the Recession Started?", written by [Pascal Michaillat](https://pascalmichaillat.org) and [Emmanuel Saez](https://eml.berkeley.edu/~saez/), and published in the [Oxford Bulletin of Economics and Statistics](http://doi.org/10.1111/obes.12685) in May 2025.
 
 ## Paper webpage
 
